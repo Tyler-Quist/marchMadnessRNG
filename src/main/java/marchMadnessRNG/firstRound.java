@@ -7,6 +7,8 @@ import java.util.Locale;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * @author Tyler Quist
@@ -39,33 +41,21 @@ public class firstRound {
 		}
 		
 		play (teams);
+		scan.close();
 	}
-	
+	/**
+	 * plays the first round of the march madness tournament and prints out results in the console
+	 * 
+	 * @param teamList list of teams playing in the first round 
+	 */
 	public static void play(Team [] teamList) {
 		System.out.println("First Round Results");
 		System.out.println("");
 		
 		for (int i = 0; i < teamList.length;i++) {
-			double num = (Math.random() * (100));
+			double num =  rngNum();
 			
-			switch(i){
-				case 0:
-				System.out.println("MidWest Division Results");	
-				System.out.println("");
-				break;
-				case 16:
-					System.out.println("South Division Results");	
-					System.out.println("");
-					break;
-				case 32:
-					System.out.println("East Division Results");	
-					System.out.println("");
-					break;
-				case 48:
-					System.out.println("West Division Results");	
-					System.out.println("");
-					break;
-			}
+			printDivNames(i);
 			
 			switch(teamList[i].getSeed()) {
 			case 1:
@@ -121,6 +111,49 @@ public class firstRound {
 			}
 		}
 		
+		
 	}
+	
+	/*
+	 * prints titles of which division results are directly underneath in console
+	 * 
+	 * @param num number on teamlist 
+	 */
+	public static void printDivNames(int num) {
+		switch(num){
+		case 0:
+		System.out.println("MidWest Division Results");	
+		System.out.println("");
+		break;
+		case 16:
+			System.out.println("South Division Results");	
+			System.out.println("");
+			break;
+		case 32:
+			System.out.println("East Division Results");	
+			System.out.println("");
+			break;
+		case 48:
+			System.out.println("West Division Results");	
+			System.out.println("");
+			break;
+		}
+	}
+	
+	/*
+	 * generates five random numbers between 0 and 100 and returns average of those numbers
+	 * 
+	 * @returns average of five random numbers between 0 and 100
+	 */
+	public static double rngNum() {
+		double num1 = (Math.random() * (100));
+		double num2 = (Math.random() * (100));
+		double num3 = (Math.random() * (100));
+		double num4 = (Math.random() * (100));
+		double num5 = (Math.random() * (100));
+		
+		double num = (num1 + num2 + num3 + num4 + num5) / 5;
+		return num;
+ 	}
 
 }
