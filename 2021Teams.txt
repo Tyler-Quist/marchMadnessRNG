@@ -9,7 +9,7 @@ Loyola 8 1
 GeorgiaTech 9 1
 Rutgers 10 1
 Syracuse 11 1
-lousiville 12 1
+OregonST 12 1
 Liberty 13 1
 MoreheadState 14 1
 ClevelandState 15 1
